@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".share.ShareActivity" />
-        <activity android:name=".RxJavaText.RxjavaActivity"></activity>
+        <activity android:name=".RxJavaText.RxjavaActivity" />
+        <activity android:name=".RxJavaText.RxjavaSubjectActivity"></activity>
     </application>
 
 </manifest>
