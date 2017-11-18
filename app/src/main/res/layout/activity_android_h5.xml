@@ -7,41 +7,26 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/loadurl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:text="shareActivity" />
+        android:text="webview加载页面内url" />
 
     <TextView
-        android:id="@+id/andincrement"
+        android:id="@+id/h5android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:text="线程安全Integer" />
+        android:text="h5调用android本地方法" />
 
     <TextView
-        android:id="@+id/object_to_json"
+        android:id="@+id/androidh5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:text="object和json之前相互转换" />
-    <TextView
-        android:id="@+id/rxjava"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="rxjava使用" />
-    <TextView
-        android:id="@+id/h5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="android和h5的交互" />
-
+        android:text="android本地调用h5方法" />
 </LinearLayout>

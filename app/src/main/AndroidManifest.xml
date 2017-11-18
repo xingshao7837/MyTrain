@@ -3,6 +3,8 @@
     package="com.example.administrator.mytrain">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApp"
@@ -21,7 +23,9 @@
         </activity>
         <activity android:name=".share.ShareActivity" />
         <activity android:name=".RxJavaText.RxjavaActivity" />
-        <activity android:name=".RxJavaText.RxjavaSubjectActivity"></activity>
+        <activity android:name=".RxJavaText.RxjavaSubjectActivity" />
+        <activity android:name=".androidh5.AndroidH5Activity"></activity>
+        <activity android:name=".androidh5.LookWebActivity"></activity>
     </application>
 
 </manifest>

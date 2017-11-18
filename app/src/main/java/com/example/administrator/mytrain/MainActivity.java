@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.administrator.mytrain.RxJavaText.RxjavaActivity;
+import com.example.administrator.mytrain.androidh5.AndroidH5Activity;
 import com.example.administrator.mytrain.bean.MulitTypeBean;
 import com.example.administrator.mytrain.bean.ObjectToJson;
 import com.example.administrator.mytrain.share.ShareActivity;
@@ -29,6 +30,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.andincrement).setOnClickListener(this);
         findViewById(R.id.object_to_json).setOnClickListener(this);
         findViewById(R.id.rxjava).setOnClickListener(this);
+        findViewById(R.id.h5).setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +79,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Log.i("--json to object",mulitTypeBean.toString());
         }else if (id==R.id.rxjava){
             startActivity(new Intent(mContext, RxjavaActivity.class));
+        }else if (id==R.id.h5){
+            startActivity(new Intent(mContext, AndroidH5Activity.class));
         }
 
     }
