@@ -1,0 +1,23 @@
+1、File-->Setting-->Git配置本地安装的git路径
+2、Vcs-->import into vorsion conrol-->create git 创建本地厂库，基本是项目的根目录
+3、把file-->git-->add
+4、vcs-->commit提交添加到本地仓库
+5、在GitHub上新建项目，并把项目地址拷贝下来
+6、直接file-->git-->push会报错，因为出现错误的主要原因是github中的README.md文件不在本地代码目录中
+   解决进入本项目的本地仓库根目录下右键，点击Git Bash Here,输入git pull --rebase origin master
+   结果代码合并，本地会有README.md文件
+7、此时再执行语句 git push -u origin master即可完成代码上传到github
+
+插件Git Flow初始化失败
+http://www.berlinix.com/it/gitflow.php
+$ git flow init
+fatal: Working tree contains unstaged changes. Aborting.报错
+到项目根目录下执行gitflow，因为之前修改没有commit，所以gitflow初始化失败：
+commit后再次进行gitflow初始化：
+$ git commit -a -m "update Bash"
+一路回车下来，各个分支名都按默认的设置。最后，当前分支已经被切换到了develop：
+
+拉取远端厂库代码报
+SSL certificate problem: unable to get local issuer certificate
+git config --global http.sslVerify false
+就可以拉去了
