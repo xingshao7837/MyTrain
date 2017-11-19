@@ -2,7 +2,6 @@ package com.example.administrator.mytrain.androidh5;
 
 import android.net.http.SslError;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.ViewGroup;
 import android.webkit.SslErrorHandler;
@@ -11,7 +10,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.administrator.mytrain.BaseActivity;
-import com.example.administrator.mytrain.R;
 
 /**
  * Created by Administrator on 2017/11/18 0018.
