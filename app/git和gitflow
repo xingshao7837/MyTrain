@@ -16,3 +16,8 @@ fatal: Working tree contains unstaged changes. Aborting.报错
 commit后再次进行gitflow初始化：
 $ git commit -a -m "update Bash"
 一路回车下来，各个分支名都按默认的设置。最后，当前分支已经被切换到了develop：
+
+拉取远端厂库代码报
+SSL certificate problem: unable to get local issuer certificate
+git config --global http.sslVerify false
+就可以拉去了
