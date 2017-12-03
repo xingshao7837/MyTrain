@@ -24,8 +24,11 @@
         <activity android:name=".share.ShareActivity" />
         <activity android:name=".RxJavaText.RxjavaActivity" />
         <activity android:name=".RxJavaText.RxjavaSubjectActivity" />
-        <activity android:name=".androidh5.AndroidH5Activity"></activity>
-        <activity android:name=".androidh5.LookWebActivity"></activity>
+        <activity android:name=".androidh5.AndroidH5Activity" />
+        <activity android:name=".androidh5.LookWebActivity" />
+        <activity android:name=".databing.DataActivity" />
+        <activity android:name=".dialog.DialogShowActivity" />
+        <activity android:name=".dialog.ProgressDialogTypeActivity"></activity>
     </application>
 
 </manifest>

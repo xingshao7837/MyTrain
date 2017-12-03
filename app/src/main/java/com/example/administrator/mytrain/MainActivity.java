@@ -5,11 +5,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.administrator.mytrain.RxJavaText.RxjavaActivity;
 import com.example.administrator.mytrain.androidh5.AndroidH5Activity;
 import com.example.administrator.mytrain.bean.MulitTypeBean;
 import com.example.administrator.mytrain.bean.ObjectToJson;
+import com.example.administrator.mytrain.databing.DataActivity;
+import com.example.administrator.mytrain.dialog.DialogShowActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
 
@@ -22,6 +25,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
+    private TextView dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.object_to_json).setOnClickListener(this);
         findViewById(R.id.rxjava).setOnClickListener(this);
         findViewById(R.id.h5).setOnClickListener(this);
+        findViewById(R.id.databing).setOnClickListener(this);
+        dialog = ((TextView) findViewById(R.id.dialog));
+        dialog.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +89,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             startActivity(new Intent(mContext, RxjavaActivity.class));
         }else if (id==R.id.h5){
             startActivity(new Intent(mContext, AndroidH5Activity.class));
+        }else if (id==R.id.databing){
+            startActivity(new Intent(mContext, DataActivity.class));
+        }else if (id==R.id.dialog){
+            startActivity(new Intent(mContext, DialogShowActivity.class));
         }
 
     }

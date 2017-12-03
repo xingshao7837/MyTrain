@@ -43,5 +43,19 @@
         android:gravity="center"
         android:padding="16dp"
         android:text="android和h5的交互" />
+    <TextView
+        android:id="@+id/databing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="数据绑定" />
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="显示进度对话框" />
 
 </LinearLayout>
