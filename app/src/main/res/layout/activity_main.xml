@@ -1,61 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="shareActivity" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="shareActivity"
+            />
+        <TextView
+            android:id="@+id/andincrement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="线程安全Integer" />
+        <TextView
+            android:id="@+id/object_to_json"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="object和json之前相互转换" />
+        <TextView
+            android:id="@+id/rxjava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="rxjava使用" />
+        <TextView
+            android:id="@+id/h5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="android和h5的交互" />
+        <TextView
+            android:id="@+id/databing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="数据绑定" />
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="显示进度对话框" />
 
-    <TextView
-        android:id="@+id/andincrement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="线程安全Integer" />
+        <TextView
+            android:id="@+id/design_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="设计模式" />
+        <TextView
+            android:id="@+id/common_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="封装公共的头部" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/object_to_json"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="object和json之前相互转换" />
-    <TextView
-        android:id="@+id/rxjava"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="rxjava使用" />
-    <TextView
-        android:id="@+id/h5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="android和h5的交互" />
-    <TextView
-        android:id="@+id/databing"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="数据绑定" />
-    <TextView
-        android:id="@+id/dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="显示进度对话框" />
 
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

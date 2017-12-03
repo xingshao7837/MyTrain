@@ -22,4 +22,14 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme.NoActionBar" parent="@style/AppTheme">-->
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+    <!--</style>-->
+    <style name="AppTheme.NoActionBar"  parent="@style/AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/set_title"
+        android:text="设置头部标题和点击事件"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_padding"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/change_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更换主题色"
+        android:gravity="center"
+        />
+
+</LinearLayout>

@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,9 @@
         <activity android:name=".androidh5.LookWebActivity" />
         <activity android:name=".databing.DataActivity" />
         <activity android:name=".dialog.DialogShowActivity" />
-        <activity android:name=".dialog.ProgressDialogTypeActivity"></activity>
+        <activity android:name=".dialog.ProgressDialogTypeActivity" />
+        <activity android:name=".designmode.DesignModeActivity" />
+        <activity android:name=".commontitle.CommonTitleActivity"></activity>
     </application>
 
 </manifest>
