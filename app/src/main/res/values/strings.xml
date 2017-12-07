@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyTrain</string>
+    <string name="databing">"实现数据流绑定，仅仅展示布局文件可是为android:text='@{bean2.bindEdit}'，
+        若是对象改变布局跟着改变需要使用@Bindable和notifyPropertyChanged(BR.bindEdit);
+        同时edittext比较特殊可以直接设置双向绑定@={bean2.bindEdit}，但是只是更新对象数据
+        却不会同时所有的BR控件数据刷新"</string>
 </resources>

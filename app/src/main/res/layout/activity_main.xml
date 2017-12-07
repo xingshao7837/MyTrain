@@ -75,6 +75,13 @@
             android:gravity="center"
             android:padding="@dimen/text_padding"
             android:text="封装公共的头部" />
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="定位" />
     </LinearLayout>
 
 

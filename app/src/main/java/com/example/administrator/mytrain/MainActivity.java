@@ -17,6 +17,8 @@ import com.example.administrator.mytrain.commontitle.CommonTitleActivity;
 import com.example.administrator.mytrain.databing.DataActivity;
 import com.example.administrator.mytrain.designmode.DesignModeActivity;
 import com.example.administrator.mytrain.dialog.DialogShowActivity;
+import com.example.administrator.mytrain.location.LocationActivity;
+import com.example.administrator.mytrain.othertrain.EditCodeActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
 
@@ -46,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         dialog.setOnClickListener(this);
         findViewById(R.id.design_mode).setOnClickListener(this);
         findViewById(R.id.common_title).setOnClickListener(this);
+        findViewById(R.id.location).setOnClickListener(this);
         setTitle("主页");
     }
 
@@ -105,6 +108,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             startActivity(new Intent(mContext, DesignModeActivity.class));
         }else if (R.id.common_title==id){
             startActivity(new Intent(mContext, CommonTitleActivity.class));
+        }else if (R.id.location==id){
+//            startActivity(new Intent(mContext, LocationActivity.class));
+            startActivity(new Intent(mContext, EditCodeActivity.class));
         }
 
     }

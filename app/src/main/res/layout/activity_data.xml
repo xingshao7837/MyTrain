@@ -8,25 +8,86 @@
         <variable
             name="data"
             type="com.example.administrator.mytrain.bean.MulitTypeBean" />
-    </data>
 
-    <LinearLayout
+        <variable
+            name="bean"
+            type="com.example.administrator.mytrain.bean.DataBingBean" />
+        <variable
+            name="bean2"
+            type="com.example.administrator.mytrain.bean.DataBingBean" />
+    </data>
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
+        >
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{data.name}'
-            android:gravity="center"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/change"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{data.name}'
-            android:gravity="center"/>
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{data.name}'
+                android:gravity="center"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{data.name}'
+                android:gravity="center"
+                android:padding="5dp"/>
+
+            <EditText
+                android:id="@+id/edit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入"
+                android:padding="5dp"/>
+
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{bean.name}'
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{bean.text}'
+                android:padding="5dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@={bean2.bindEdit}'
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text='@{bean2.bindEdit}'
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/bindEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/databing"
+                />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+
 
 </layout>
