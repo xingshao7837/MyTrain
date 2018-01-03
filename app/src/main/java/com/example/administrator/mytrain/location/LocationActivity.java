@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.administrator.mytrain.BaseActivity;
 import com.example.administrator.mytrain.R;
 import com.example.administrator.mytrain.uitls.LocationUtils;
+import com.example.administrator.mytrain.uitls.ToastUtil;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,6 +24,8 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.start).setOnClickListener(this);
         display = ((TextView) findViewById(R.id.display));
         setTitle("开启定位");
+        String info=getIntent().getStringExtra("name");
+        ToastUtil.show(info);
     }
 
     @Override

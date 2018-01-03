@@ -8,12 +8,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="${NAME}"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -35,7 +41,20 @@
         <activity android:name=".designmode.DesignModeActivity" />
         <activity android:name=".commontitle.CommonTitleActivity" />
         <activity android:name=".location.LocationActivity" />
-        <activity android:name=".othertrain.EditCodeActivity"></activity>
+        <activity android:name=".othertrain.EditCodeActivity" />
+        <activity android:name=".broadcast.BroadcastMainActivity" />
+
+        <receiver
+            android:name=".broadcast.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="com.example.administrator.mytrain.broadcast" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".kotlin.KotlinMainActivity"></activity>
     </application>
 
 </manifest>

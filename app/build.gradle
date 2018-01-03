@@ -5,21 +5,44 @@ android {
     defaultConfig {
         applicationId "com.example.administrator.mytrain"
         minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 20
+        versionCode 100000
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', "armeabi-v7a", "x86"
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            ndkConfig.abiFilters = ['armeabi-v7a', "x86"]
+            manifestPlaceholders = [
+                    FORMAL: false, DEBUG: true, NAME: "心思",]
+            signingConfig signingConfigs.debug
+        }
     }
     dataBinding {
         enabled = true
     }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+
+            def outputFile = output.outputFile
+            def c = Calendar.getInstance();
+            if (outputFile != null && outputFile.name.contains('debug')) {
+                def fileName = "心思-${defaultConfig.versionName}-${c.get(Calendar.MONTH) + 1}.${c.get(Calendar.DAY_OF_MONTH)}.apk"
+                outputFileName = fileName
+            }
+        }
+    }
+
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -33,4 +56,11 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'

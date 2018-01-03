@@ -13,10 +13,12 @@ import com.example.administrator.mytrain.RxJavaText.RxjavaActivity;
 import com.example.administrator.mytrain.androidh5.AndroidH5Activity;
 import com.example.administrator.mytrain.bean.MulitTypeBean;
 import com.example.administrator.mytrain.bean.ObjectToJson;
+import com.example.administrator.mytrain.broadcast.BroadcastMainActivity;
 import com.example.administrator.mytrain.commontitle.CommonTitleActivity;
 import com.example.administrator.mytrain.databing.DataActivity;
 import com.example.administrator.mytrain.designmode.DesignModeActivity;
 import com.example.administrator.mytrain.dialog.DialogShowActivity;
+import com.example.administrator.mytrain.kotlin.KotlinMainActivity;
 import com.example.administrator.mytrain.location.LocationActivity;
 import com.example.administrator.mytrain.othertrain.EditCodeActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
@@ -49,6 +51,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.design_mode).setOnClickListener(this);
         findViewById(R.id.common_title).setOnClickListener(this);
         findViewById(R.id.location).setOnClickListener(this);
+        findViewById(R.id.broadcast).setOnClickListener(this);
+        findViewById(R.id.kotlin).setOnClickListener(this);
         setTitle("主页");
     }
 
@@ -111,6 +115,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (R.id.location==id){
 //            startActivity(new Intent(mContext, LocationActivity.class));
             startActivity(new Intent(mContext, EditCodeActivity.class));
+        }else if (id==R.id.broadcast){
+            startActivity(new Intent(mContext, BroadcastMainActivity.class));
+        }else if (id==R.id.kotlin){
+            startActivity(new Intent(mContext, KotlinMainActivity.class));
         }
 
     }

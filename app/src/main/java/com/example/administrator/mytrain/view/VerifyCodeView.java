@@ -21,7 +21,7 @@ public class VerifyCodeView extends RelativeLayout {
     private TextView[] textViews;
     private View[] views;
     private View[] cursor;
-    private static int MAX = 4;
+    private static int MAX = 6;
     private String inputContent;
 
     public VerifyCodeView(Context context) {
@@ -43,14 +43,20 @@ public class VerifyCodeView extends RelativeLayout {
         textViews[1] = (TextView) findViewById(R.id.tv_1);
         textViews[2] = (TextView) findViewById(R.id.tv_2);
         textViews[3] = (TextView) findViewById(R.id.tv_3);
+        textViews[4] = (TextView) findViewById(R.id.tv_4);
+        textViews[5] = (TextView) findViewById(R.id.tv_5);
         views[0] = findViewById(R.id.view1);
         views[1] = findViewById(R.id.view2);
         views[2] = findViewById(R.id.view3);
         views[3] = findViewById(R.id.view4);
+        views[4] = findViewById(R.id.view5);
+        views[5] = findViewById(R.id.view6);
         cursor[0] = findViewById(R.id.cursor1);
         cursor[1] = findViewById(R.id.cursor2);
         cursor[2] = findViewById(R.id.cursor3);
         cursor[3] = findViewById(R.id.cursor4);
+        cursor[4] = findViewById(R.id.cursor5);
+        cursor[5] = findViewById(R.id.cursor6);
         editText = (EditText) findViewById(R.id.edit_text_view);
 
         editText.setCursorVisible(false);//隐藏光标

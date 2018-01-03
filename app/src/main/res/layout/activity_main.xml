@@ -82,6 +82,20 @@
             android:gravity="center"
             android:padding="@dimen/text_padding"
             android:text="定位" />
+        <TextView
+            android:id="@+id/broadcast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="广播" />
+        <TextView
+            android:id="@+id/kotlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="kotlin新语言" />
     </LinearLayout>
 
 
