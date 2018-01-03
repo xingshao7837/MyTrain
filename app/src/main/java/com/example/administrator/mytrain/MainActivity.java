@@ -54,6 +54,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.broadcast).setOnClickListener(this);
         findViewById(R.id.kotlin).setOnClickListener(this);
         setTitle("主页");
+//        int num=10/0;
     }
 
     @Override
@@ -96,7 +97,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             String json2=gson.toJson(mulitTypeBean);
             Log.i("--含有内部类转换为json",json2);
             mulitTypeBean=null;
-
             mulitTypeBean=gson.fromJson(json2,MulitTypeBean.class);
             mulitTypeBean.money=899;
             Log.i("--json to object",mulitTypeBean.toString());
@@ -113,7 +113,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (R.id.common_title==id){
             startActivity(new Intent(mContext, CommonTitleActivity.class));
         }else if (R.id.location==id){
-//            startActivity(new Intent(mContext, LocationActivity.class));
             startActivity(new Intent(mContext, EditCodeActivity.class));
         }else if (id==R.id.broadcast){
             startActivity(new Intent(mContext, BroadcastMainActivity.class));

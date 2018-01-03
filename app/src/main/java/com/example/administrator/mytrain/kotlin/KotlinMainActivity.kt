@@ -11,5 +11,6 @@ class KotlinMainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setView(R.layout.activity_kotlin_main)
         text.text="我的第一个kotlin"
+
     }
 }
