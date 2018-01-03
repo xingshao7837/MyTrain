@@ -1,10 +1,7 @@
 package com.example.administrator.mytrain;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,16 +16,13 @@ import com.example.administrator.mytrain.databing.DataActivity;
 import com.example.administrator.mytrain.designmode.DesignModeActivity;
 import com.example.administrator.mytrain.dialog.DialogShowActivity;
 import com.example.administrator.mytrain.kotlin.KotlinMainActivity;
-import com.example.administrator.mytrain.location.LocationActivity;
 import com.example.administrator.mytrain.othertrain.EditCodeActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
