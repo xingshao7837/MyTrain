@@ -77,7 +77,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Log.i("--json",json);
             objectToJson=gson.fromJson(json,ObjectToJson.class);
             Log.i("--bean",objectToJson.toString());
-
             MulitTypeBean mulitTypeBean=new MulitTypeBean.Builder()
                     .name("内部类")
                     .days(23)
@@ -113,6 +112,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (id==R.id.kotlin){
             startActivity(new Intent(mContext, KotlinMainActivity.class));
         }
-
     }
 }
