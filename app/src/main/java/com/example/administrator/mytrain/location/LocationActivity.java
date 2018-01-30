@@ -1,5 +1,6 @@
 package com.example.administrator.mytrain.location;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.UiThread;
 import android.util.Log;
@@ -32,7 +33,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         int id=v.getId();
         if (id==R.id.start){
-            Timer timer=new Timer();
+//            Timer timer=new Timer();
 //            timer.schedule(new TimerTask() {
 //                @Override
 //                public void run() {
@@ -40,23 +41,22 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
 //                    runOnUiThread(new Runnable() {
 //                        @Override
 //                        public void run() {
-//                            LocationUtils.getCNBylocation(mContext);
+//                            LocationUtils.getCNBylocation(mContext, new LocationUtils.LocationInfoListening() {
+//                                @Override
+//                                public void setLocationInfoListening(Location location) {
+//
+//                                }
+//                            });
 //                        }
 //                    });
 //                }
-//            },5000);
-            timer.schedule(new TimerTask() {
+//            },2000,1000);
+            LocationUtils.getCNBylocation(mContext, new LocationUtils.LocationInfoListening() {
                 @Override
-                public void run() {
-                    Log.i("---","location");
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            LocationUtils.getCNBylocation(mContext);
-                        }
-                    });
+                public void setLocationInfoListening(Location location) {
+                    Log.i("---","Latitude="+location.getLatitude()+"Longitude="+location.getLongitude());
                 }
-            },2000,1000);
+            });
 
         }
     }

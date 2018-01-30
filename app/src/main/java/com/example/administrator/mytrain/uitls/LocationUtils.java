@@ -24,14 +24,17 @@ public class LocationUtils {
     public static String cityName;  //城市名
 
     private static Geocoder geocoder;   //此对象能通过经纬度来获取相应的城市等信息
-
+    private static LocationInfoListening locationInfoListening;
+    public interface LocationInfoListening{
+        void setLocationInfoListening(Location location);
+    }
 
     /**
      * 通过地理坐标获取城市名  其中CN分别是city和name的首字母缩写
      * @param context
      */
-    public static void getCNBylocation(Context context) {
-
+    public static void getCNBylocation(Context context,LocationInfoListening infoListening) {
+        locationInfoListening=infoListening;
         geocoder = new Geocoder(context);
         //用于获取Location对象，以及其他
         LocationManager locationManager;
@@ -41,22 +44,21 @@ public class LocationUtils {
         //provider的类型
         String provider = LocationManager.NETWORK_PROVIDER;
 
-        Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);   //高精度
-        criteria.setAltitudeRequired(false);    //不要求海拔
-        criteria.setBearingRequired(false); //不要求方位
-        criteria.setCostAllowed(false); //不允许有话费
-        criteria.setPowerRequirement(Criteria.POWER_LOW);   //低功耗
+//        Criteria criteria = new Criteria();
+//        criteria.setAccuracy(Criteria.ACCURACY_FINE);   //高精度
+//        criteria.setAltitudeRequired(false);    //不要求海拔
+//        criteria.setBearingRequired(false); //不要求方位
+//        criteria.setCostAllowed(false); //不允许有话费
+//        criteria.setPowerRequirement(Criteria.POWER_LOW);   //低功耗
 
         //通过最后一次的地理位置来获得Location对象
         if (ActivityCompat.checkSelfPermission(context,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
             return;
         }
         Location location = locationManager.getLastKnownLocation(provider);
-
+        locationInfoListening.setLocationInfoListening(location);
         String queryed_name = updateWithNewLocation(location);
         if((queryed_name != null) && (0 != queryed_name.length())){
             cityName = queryed_name;
@@ -66,8 +68,8 @@ public class LocationUtils {
          * 第二个参数表示更新的周期，单位为毫秒；第三个参数的含义表示最小距离间隔，单位是米
          * 设定每30秒进行一次自动定位
          */
-        locationManager.requestLocationUpdates(provider, 30000, 50,
-                locationListener);
+//        locationManager.requestLocationUpdates(provider, 30000, 50,
+//                locationListener);
         //移除监听器，在只有一个widget的时候，这个还是适用的
 //        locationManager.removeUpdates(locationListener);
     }

@@ -21,3 +21,10 @@ $ git commit -a -m "update Bash"
 SSL certificate problem: unable to get local issuer certificate
 git config --global http.sslVerify false
 就可以拉去了
+
+
+android studio拉取远端代码
+1、VCS---Checkout from Version Control---Git
+2、填入网址，点击text建立连接
+3、拉取代码打开项目
+

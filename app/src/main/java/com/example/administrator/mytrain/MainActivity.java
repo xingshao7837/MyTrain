@@ -16,6 +16,7 @@ import com.example.administrator.mytrain.databing.DataActivity;
 import com.example.administrator.mytrain.designmode.DesignModeActivity;
 import com.example.administrator.mytrain.dialog.DialogShowActivity;
 import com.example.administrator.mytrain.kotlin.KotlinMainActivity;
+import com.example.administrator.mytrain.location.LocationActivity;
 import com.example.administrator.mytrain.othertrain.EditCodeActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
@@ -47,8 +48,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.location).setOnClickListener(this);
         findViewById(R.id.broadcast).setOnClickListener(this);
         findViewById(R.id.kotlin).setOnClickListener(this);
+        findViewById(R.id.self_view).setOnClickListener(this);
         setTitle("主页");
-//        int num=10/0;
     }
 
     @Override
@@ -106,10 +107,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (R.id.common_title==id){
             startActivity(new Intent(mContext, CommonTitleActivity.class));
         }else if (R.id.location==id){
-            startActivity(new Intent(mContext, EditCodeActivity.class));
+            startActivity(new Intent(mContext, LocationActivity.class));
+//            startActivity(new Intent(mContext, EditCodeActivity.class));
         }else if (id==R.id.broadcast){
             startActivity(new Intent(mContext, BroadcastMainActivity.class));
         }else if (id==R.id.kotlin){
+            startActivity(new Intent(mContext, KotlinMainActivity.class));
+        }else if (id==R.id.self_view){
             startActivity(new Intent(mContext, KotlinMainActivity.class));
         }
     }

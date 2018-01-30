@@ -54,7 +54,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".kotlin.KotlinMainActivity"></activity>
+        <activity android:name=".kotlin.KotlinMainActivity" />
+        <activity android:name=".selfview.SelfViewMainActivity" />
+        <activity android:name=".selfview.ViewActivity"></activity>
     </application>
 
 </manifest>
