@@ -36,8 +36,10 @@ public class BaseActivity extends AppCompatActivity {
     private FrameLayout toolbar_layout;
     private FrameLayout rootView;
     View.OnClickListener onTitleClickListener;
+    View.OnClickListener onLeftClickListener;
     public TextView toolbar_title;
     private View rootColor;
+    private TextView toolbarLeft;
 
 
     @Override
@@ -54,6 +56,7 @@ public class BaseActivity extends AppCompatActivity {
         body = (FrameLayout) findViewById(R.id.body);
         toolbar_layout = (FrameLayout) findViewById(R.id.toolbar_layout);
         rootView = body;
+        toolbarLeft = ((TextView) findViewById(R.id.toolbar_left));
         toolbar_title = (TextView) findViewById(R.id.toolbar_title);
         toolbar_title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +65,17 @@ public class BaseActivity extends AppCompatActivity {
                     onTitleClickListener.onClick(v);
             }
         });
+        toolbarLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onLeftClickListener!=null){
+                    onLeftClickListener.onClick(v);
+                }else {
+                    finish();
+                }
+            }
+        });
+
     }
     /**
      * 改变头布局

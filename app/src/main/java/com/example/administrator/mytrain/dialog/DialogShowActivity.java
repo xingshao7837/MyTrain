@@ -17,10 +17,11 @@ public class DialogShowActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialog_show);
+        setView(R.layout.activity_dialog_show);
         dialog = ((TextView) findViewById(R.id.dialog));
         dialog.setOnClickListener(this);
         findViewById(R.id.type).setOnClickListener(this);
+        setTitle("自定义对话框");
     }
 
     @Override

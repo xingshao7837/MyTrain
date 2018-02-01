@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.broadcast).setOnClickListener(this);
         findViewById(R.id.kotlin).setOnClickListener(this);
         findViewById(R.id.self_view).setOnClickListener(this);
+        findViewById(R.id.video_voice).setOnClickListener(this);
         setTitle("主页");
     }
 
@@ -115,6 +116,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             startActivity(new Intent(mContext, KotlinMainActivity.class));
         }else if (id==R.id.self_view){
             startActivity(new Intent(mContext, KotlinMainActivity.class));
+        }else if (id==R.id.video_voice){
+            startActivity(new Intent(mContext, VideoVoiceActivity.class));
         }
     }
 }

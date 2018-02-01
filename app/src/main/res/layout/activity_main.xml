@@ -103,6 +103,13 @@
             android:gravity="center"
             android:padding="@dimen/text_padding"
             android:text="自定义view" />
+        <TextView
+            android:id="@+id/video_voice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_padding"
+            android:text="视频语音分离" />
     </LinearLayout>
 
 
