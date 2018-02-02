@@ -36,6 +36,20 @@
         android:gravity="center"
         android:text="合成视频"/>
 
+    <Button android:id="@+id/combine_change"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="音频转换为文字"/>
+
+    <TextView android:id="@+id/combine_change_text"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="文字"/>
+
 
 
 </LinearLayout>

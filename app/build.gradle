@@ -67,7 +67,7 @@ dependencies {
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation files('libs/lfasr-sdk-client-2.0.0.1005-jar-with-dependencies.jar')
+    implementation files('libs/Msc.jar')
 }
 
 apply plugin: 'kotlin-android'

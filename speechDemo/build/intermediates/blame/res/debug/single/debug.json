@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable_list_bg_color.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable\\list_bg_color.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_iatdemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\iatdemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_icon.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable_main_setting_btn_np.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable\\main_setting_btn_np.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_no_photo.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable-hdpi\\no_photo.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_isedemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\isedemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_title.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\title.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable_user.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable\\user.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_activity_vocal_identify.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\activity_vocal_identify.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_item_group.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\item_group.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable_setting.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable\\setting.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_list_items.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\list_items.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_understander.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\understander.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_activity_result_identify.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\activity_result_identify.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_isrdemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\isrdemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_activity_face_identify.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\activity_face_identify.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_ttsdemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\ttsdemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\xml_ise_settings.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\xml\\ise_settings.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_online_facedemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\online_facedemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_group_header_layout.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\group_header_layout.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_activity_group_manager.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\activity_group_manager.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\xml_tts_setting.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\xml\\tts_setting.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_isvdemo.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\isvdemo.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_item_identify_result.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\item_identify_result.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_icon.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable-mdpi\\icon.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\drawable_setting_p.png.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\drawable\\setting_p.png"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\xml_iat_setting.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\xml\\iat_setting.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\xml_understand_setting.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\xml\\understand_setting.xml"
+    },
+    {
+        "merged": "D:\\MyTrain\\speechDemo\\build\\intermediates\\res\\merged\\debug\\layout_main.xml.flat",
+        "source": "D:\\MyTrain\\speechDemo\\src\\main\\res\\layout\\main.xml"
+    }
+]

@@ -1,0 +1,4 @@
+#Thu Feb 01 11:12:16 CST 2018
+base.0=D\:\\MyTrain\\speechDemo\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+renamed.0=classes.dex
+file.0=D\:\\MyTrain\\speechDemo\\build\\intermediates\\transforms\\dexMerger\\debug\\3\\classes.dex

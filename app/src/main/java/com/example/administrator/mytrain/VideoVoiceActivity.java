@@ -1,22 +1,43 @@
 package com.example.administrator.mytrain;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.media.MediaCodec;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+
+import com.example.administrator.mytrain.uitls.FucUtil;
+import com.example.administrator.mytrain.uitls.JsonParser;
 import com.example.administrator.mytrain.uitls.ToastUtil;
 
+import com.iflytek.cloud.ErrorCode;
+import com.iflytek.cloud.InitListener;
+import com.iflytek.cloud.RecognizerListener;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechRecognizer;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class VideoVoiceActivity extends BaseActivity {
 
@@ -25,10 +46,15 @@ public class VideoVoiceActivity extends BaseActivity {
     Button exactorBtn;
     Button muxerBtn;
     Button muxerAudioBtn;
-    Button combineVideoBtn;
+    Button combineVideoBtn,change;
 
     MediaExtractor mediaExtractor;
     MediaMuxer mediaMuxer;
+
+    private TextView textView;
+    // 语音听写对象
+    private SpeechRecognizer mIat;
+    int ret = 0; // 函数调用返回值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +65,18 @@ public class VideoVoiceActivity extends BaseActivity {
         muxerBtn = (Button) findViewById(R.id.muxer);
         muxerAudioBtn = (Button) findViewById(R.id.muxer_audio);
         combineVideoBtn = (Button) findViewById(R.id.combine_video);
-
+        change = (Button) findViewById(R.id.combine_change);
+        textView = ((TextView) findViewById(R.id.combine_change_text));
+        // 初始化识别无UI识别对象
+        // 使用SpeechRecognizer对象，可根据回调消息自定义界面；
+        mIat = SpeechRecognizer.createRecognizer(mContext, mInitListener);
+//        try {
+//            saveToSDCard("视频.mp4");
+//        } catch (Throwable throwable) {
+//            throwable.printStackTrace();
+//        }
+        mSharedPreferences = getSharedPreferences("com.iflytek.setting",
+                Activity.MODE_PRIVATE);
         exactorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +107,47 @@ public class VideoVoiceActivity extends BaseActivity {
             }
         });
         mediaExtractor = new MediaExtractor();
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            changeText();
+            }
+        });
+
     }
+
+    private void changeText() {
+        if (mIat==null)
+            return;
+
+        // 设置音频来源为外部文件
+        // 设置参数
+        setParam();
+        mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
+        // 也可以像以下这样直接设置音频文件路径识别（要求设置文件在sdcard上的全路径）：
+        // mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-2");
+        // mIat.setParameter(SpeechConstant.ASR_SOURCE_PATH, "sdcard/XXX/XXX.pcm");
+        ret = mIat.startListening(mRecognizerListener);
+        if (ret != ErrorCode.SUCCESS) {
+            ToastUtil.show("识别失败,错误码：" + ret);
+        } else {
+            byte[] audioData = FucUtil.readAudioFile(mContext, "iattest.wav");
+            if (null != audioData) {
+                ToastUtil.show("开始音频流识别");
+                // 一次（也可以分多次）写入音频文件数据，数据格式必须是采样率为8KHz或16KHz（本地识别只支持16K采样率，云端都支持），
+                // 位长16bit，单声道的wav或者pcm
+                // 写入8KHz采样的音频时，必须先调用setParameter(SpeechConstant.SAMPLE_RATE, "8000")设置正确的采样率
+                // 注：当音频过长，静音部分时长超过VAD_EOS将导致静音后面部分不能识别。
+                // 音频切分方法：FucUtil.splitBuffer(byte[] buffer,int length,int spsize);
+                mIat.writeAudio(audioData, 0, audioData.length);
+                mIat.stopListening();
+            } else {
+                mIat.cancel();
+                ToastUtil.show("读取音频流失败");
+            }
+        }
+    }
+
 
     private void exactorMedia() {
         FileOutputStream videoOutputStream = null;
@@ -210,7 +287,7 @@ public class VideoVoiceActivity extends BaseActivity {
         mediaExtractor = new MediaExtractor();
         int audioIndex = -1;
         try {
-            mediaExtractor.setDataSource(SDCARD_PATH + "/input.mp4");
+            mediaExtractor.setDataSource(SDCARD_PATH + "/视频.mp4");
             int trackCount = mediaExtractor.getTrackCount();
             for (int i = 0; i < trackCount; i++) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(i);
@@ -220,7 +297,7 @@ public class VideoVoiceActivity extends BaseActivity {
             }
             mediaExtractor.selectTrack(audioIndex);
             MediaFormat trackFormat = mediaExtractor.getTrackFormat(audioIndex);
-            mediaMuxer = new MediaMuxer(SDCARD_PATH + "/output_audio", MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
+            mediaMuxer = new MediaMuxer(SDCARD_PATH + "/output_audio_myself.wav", MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
             int writeAudioIndex = mediaMuxer.addTrack(trackFormat);
             mediaMuxer.start();
             ByteBuffer byteBuffer = ByteBuffer.allocate(500 * 1024);
@@ -359,5 +436,194 @@ public class VideoVoiceActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 初始化监听器。
+     */
+    private InitListener mInitListener = new InitListener() {
+
+        @Override
+        public void onInit(int code) {
+            Log.d("--", "SpeechRecognizer init() code = " + code);
+            if (code != ErrorCode.SUCCESS) {
+                ToastUtil.show("初始化失败，错误码：" + code);
+            }
+        }
+    };
+    // 引擎类型
+    private String mEngineType = SpeechConstant.TYPE_CLOUD;
+    private boolean mTranslateEnable = false;
+    private SharedPreferences mSharedPreferences;
+    // 用HashMap存储听写结果
+    private HashMap<String, String> mIatResults = new LinkedHashMap<String, String>();
+    /**
+     * 参数设置
+     *
+     * @return
+     */
+    public void setParam() {
+        // 清空参数
+        mIat.setParameter(SpeechConstant.PARAMS, null);
+
+        // 设置听写引擎
+        mIat.setParameter(SpeechConstant.ENGINE_TYPE, mEngineType);
+        // 设置返回结果格式
+        mIat.setParameter(SpeechConstant.RESULT_TYPE, "json");
+
+        this.mTranslateEnable = mSharedPreferences.getBoolean( "translate", false );
+        if( mTranslateEnable ){
+            mIat.setParameter( SpeechConstant.ASR_SCH, "1" );
+            mIat.setParameter( SpeechConstant.ADD_CAP, "translate" );
+            mIat.setParameter( SpeechConstant.TRS_SRC, "its" );
+        }
+
+        String lag = mSharedPreferences.getString("iat_language_preference",
+                "mandarin");
+        if (lag.equals("en_us")) {
+            // 设置语言
+            mIat.setParameter(SpeechConstant.LANGUAGE, "en_us");
+            mIat.setParameter(SpeechConstant.ACCENT, null);
+
+            if( mTranslateEnable ){
+                mIat.setParameter( SpeechConstant.ORI_LANG, "en" );
+                mIat.setParameter( SpeechConstant.TRANS_LANG, "cn" );
+            }
+        } else {
+            // 设置语言
+            mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
+            // 设置语言区域
+            mIat.setParameter(SpeechConstant.ACCENT, lag);
+
+            if( mTranslateEnable ){
+                mIat.setParameter( SpeechConstant.ORI_LANG, "cn" );
+                mIat.setParameter( SpeechConstant.TRANS_LANG, "en" );
+            }
+        }
+
+        // 设置语音前端点:静音超时时间，即用户多长时间不说话则当做超时处理
+        mIat.setParameter(SpeechConstant.VAD_BOS, mSharedPreferences.getString("iat_vadbos_preference", "4000"));
+
+        // 设置语音后端点:后端点静音检测时间，即用户停止说话多长时间内即认为不再输入， 自动停止录音
+        mIat.setParameter(SpeechConstant.VAD_EOS, mSharedPreferences.getString("iat_vadeos_preference", "1000"));
+
+        // 设置标点符号,设置为"0"返回结果无标点,设置为"1"返回结果有标点
+        mIat.setParameter(SpeechConstant.ASR_PTT, mSharedPreferences.getString("iat_punc_preference", "1"));
+
+        // 设置音频保存路径，保存音频格式支持pcm、wav，设置路径为sd卡请注意WRITE_EXTERNAL_STORAGE权限
+        // 注：AUDIO_FORMAT参数语记需要更新版本才能生效
+        mIat.setParameter(SpeechConstant.AUDIO_FORMAT,"wav");
+        mIat.setParameter(SpeechConstant.ASR_AUDIO_PATH, Environment.getExternalStorageDirectory()+"/msc/iat.wav");
+    }
+
+    /**
+     * 听写监听器。
+     */
+    private RecognizerListener mRecognizerListener = new RecognizerListener() {
+
+        @Override
+        public void onBeginOfSpeech() {
+            // 此回调表示：sdk内部录音机已经准备好了，用户可以开始语音输入
+            ToastUtil.show("开始说话");
+        }
+
+        @Override
+        public void onError(SpeechError error) {
+            // Tips：
+            // 错误码：10118(您没有说话)，可能是录音机权限被禁，需要提示用户打开应用的录音权限。
+            // 如果使用本地功能（语记）需要提示用户开启语记的录音权限。
+            if(mTranslateEnable && error.getErrorCode() == 14002) {
+                ToastUtil.show( error.getPlainDescription(true)+"\n请确认是否已开通翻译功能" );
+            } else {
+                ToastUtil.show(error.getPlainDescription(true));
+            }
+        }
+
+        @Override
+        public void onEndOfSpeech() {
+            // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
+            ToastUtil.show("结束说话");
+        }
+
+        @Override
+        public void onResult(RecognizerResult results, boolean isLast) {
+            if( mTranslateEnable ){
+                printTransResult( results );
+            }else{
+                printResult(results);
+            }
+
+            if (isLast) {
+                // TODO 最后的结果
+            }
+        }
+
+        @Override
+        public void onVolumeChanged(int volume, byte[] data) {
+            ToastUtil.show("当前正在说话，音量大小：" + volume);
+        }
+
+        @Override
+        public void onEvent(int eventType, int arg1, int arg2, Bundle obj) {
+            // 以下代码用于获取与云端的会话id，当业务出错时将会话id提供给技术支持人员，可用于查询会话日志，定位出错原因
+            // 若使用本地能力，会话id为null
+            //	if (SpeechEvent.EVENT_SESSION_ID == eventType) {
+            //		String sid = obj.getString(SpeechEvent.KEY_EVENT_SESSION_ID);
+            //		Log.d(TAG, "session id =" + sid);
+            //	}
+        }
+    };
+
+    private void printResult(RecognizerResult results) {
+        String text = JsonParser.parseIatResult(results.getResultString());
+
+        String sn = null;
+        // 读取json结果中的sn字段
+        try {
+            JSONObject resultJson = new JSONObject(results.getResultString());
+            sn = resultJson.optString("sn");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        mIatResults.put(sn, text);
+
+        StringBuffer resultBuffer = new StringBuffer();
+        for (String key : mIatResults.keySet()) {
+            resultBuffer.append(mIatResults.get(key));
+        }
+
+        textView.setText(resultBuffer.toString());
+    }
+
+    private void printTransResult (RecognizerResult results) {
+        String trans  = JsonParser.parseTransResult(results.getResultString(),"dst");
+        String oris = JsonParser.parseTransResult(results.getResultString(),"src");
+
+        if( TextUtils.isEmpty(trans)||TextUtils.isEmpty(oris) ){
+            ToastUtil.show( "解析结果失败，请确认是否已开通翻译功能。" );
+        }else{
+            textView.setText( "原始语言:\n"+oris+"\n目标语言:\n"+trans );
+        }
+
+    }
+
+
+    public void saveToSDCard(String name) throws Throwable {
+        InputStream inStream = mContext.getResources().openRawResource(R.raw.input);
+        File file = new File(Environment.getExternalStorageDirectory(), name);
+        FileOutputStream fileOutputStream = new FileOutputStream(file);//存入SDCard
+        byte[] buffer = new byte[10];
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        int len = 0;
+        while((len = inStream.read(buffer)) != -1) {
+            outStream.write(buffer, 0, len);
+        }
+        byte[] bs = outStream.toByteArray();
+        fileOutputStream.write(bs);
+        outStream.close();
+        inStream.close();
+        fileOutputStream.flush();
+        fileOutputStream.close();
     }
 }
