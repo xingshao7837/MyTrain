@@ -10,7 +10,14 @@
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开启定位"
+        android:text="开启系统定位定位"
+        android:padding="@dimen/text_padding"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/gd_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开启高德定位"
         android:padding="@dimen/text_padding"
         android:gravity="center"/>
     <TextView
@@ -18,6 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="展示定位信息"
+        android:padding="@dimen/text_padding"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/display_xt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="展示系统定位信息"
         android:padding="@dimen/text_padding"
         android:gravity="center"/>
 

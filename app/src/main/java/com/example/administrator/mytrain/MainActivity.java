@@ -117,8 +117,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (id==R.id.self_view){
             startActivity(new Intent(mContext, KotlinMainActivity.class));
         }else if (id==R.id.video_voice){
-//            startActivity(new Intent(mContext, VideoVoiceActivity.class));
-            startActivity(new Intent(mContext, VideoActivity.class));
+            startActivity(new Intent(mContext, VideoVoiceActivity.class));
+//            startActivity(new Intent(mContext, VideoActivity.class));
         }
     }
 }

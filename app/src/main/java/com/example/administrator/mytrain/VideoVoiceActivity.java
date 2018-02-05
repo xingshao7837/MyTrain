@@ -123,28 +123,28 @@ public class VideoVoiceActivity extends BaseActivity {
         // 设置音频来源为外部文件
         // 设置参数
         setParam();
-        mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
+//        mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
         // 也可以像以下这样直接设置音频文件路径识别（要求设置文件在sdcard上的全路径）：
-        // mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-2");
-        // mIat.setParameter(SpeechConstant.ASR_SOURCE_PATH, "sdcard/XXX/XXX.pcm");
+         mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-2");
+         mIat.setParameter(SpeechConstant.ASR_SOURCE_PATH, "sdcard/output_audio_myself.wav");
         ret = mIat.startListening(mRecognizerListener);
         if (ret != ErrorCode.SUCCESS) {
             ToastUtil.show("识别失败,错误码：" + ret);
         } else {
-            byte[] audioData = FucUtil.readAudioFile(mContext, "iattest.wav");
-            if (null != audioData) {
-                ToastUtil.show("开始音频流识别");
-                // 一次（也可以分多次）写入音频文件数据，数据格式必须是采样率为8KHz或16KHz（本地识别只支持16K采样率，云端都支持），
-                // 位长16bit，单声道的wav或者pcm
-                // 写入8KHz采样的音频时，必须先调用setParameter(SpeechConstant.SAMPLE_RATE, "8000")设置正确的采样率
-                // 注：当音频过长，静音部分时长超过VAD_EOS将导致静音后面部分不能识别。
-                // 音频切分方法：FucUtil.splitBuffer(byte[] buffer,int length,int spsize);
-                mIat.writeAudio(audioData, 0, audioData.length);
-                mIat.stopListening();
-            } else {
-                mIat.cancel();
-                ToastUtil.show("读取音频流失败");
-            }
+//            byte[] audioData = FucUtil.readAudioFile(mContext, "iattest.wav");
+//            if (null != audioData) {
+//                ToastUtil.show("开始音频流识别");
+//                // 一次（也可以分多次）写入音频文件数据，数据格式必须是采样率为8KHz或16KHz（本地识别只支持16K采样率，云端都支持），
+//                // 位长16bit，单声道的wav或者pcm
+//                // 写入8KHz采样的音频时，必须先调用setParameter(SpeechConstant.SAMPLE_RATE, "8000")设置正确的采样率
+//                // 注：当音频过长，静音部分时长超过VAD_EOS将导致静音后面部分不能识别。
+//                // 音频切分方法：FucUtil.splitBuffer(byte[] buffer,int length,int spsize);
+//                mIat.writeAudio(audioData, 0, audioData.length);
+//                mIat.stopListening();
+//            } else {
+//                mIat.cancel();
+//                ToastUtil.show("读取音频流失败");
+//            }
         }
     }
 
