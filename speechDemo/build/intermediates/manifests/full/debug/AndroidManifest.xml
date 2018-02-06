@@ -26,8 +26,7 @@
         android:name="com.iflytek.voicedemo.SpeechApp"
         android:debuggable="true"
         android:icon="@drawable/icon"
-        android:label="讯飞语音示例"
-        android:testOnly="true" >
+        android:label="讯飞语音示例" >
         <activity
             android:name="com.iflytek.voicedemo.MainActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
