@@ -18,6 +18,7 @@ import com.example.administrator.mytrain.dialog.DialogShowActivity;
 import com.example.administrator.mytrain.kotlin.KotlinMainActivity;
 import com.example.administrator.mytrain.location.LocationActivity;
 import com.example.administrator.mytrain.othertrain.EditCodeActivity;
+import com.example.administrator.mytrain.selfview.ViewActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
 
@@ -115,7 +116,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (id==R.id.kotlin){
             startActivity(new Intent(mContext, KotlinMainActivity.class));
         }else if (id==R.id.self_view){
-            startActivity(new Intent(mContext, KotlinMainActivity.class));
+            startActivity(new Intent(mContext, ViewActivity.class));
         }else if (id==R.id.video_voice){
             startActivity(new Intent(mContext, VideoVoiceActivity.class));
 //            startActivity(new Intent(mContext, VideoActivity.class));
