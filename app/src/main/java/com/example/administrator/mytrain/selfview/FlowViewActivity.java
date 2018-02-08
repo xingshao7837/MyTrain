@@ -2,17 +2,21 @@ package com.example.administrator.mytrain.selfview;
 
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.administrator.mytrain.BaseActivity;
 import com.example.administrator.mytrain.R;
 import com.example.administrator.mytrain.fragment.BaseFragment;
 import com.example.administrator.mytrain.fragment.FlowViewFragment;
+import com.example.administrator.mytrain.uitls.FragmentUtil;
+import com.example.administrator.mytrain.uitls.ToastUtil;
 import com.example.administrator.mytrain.view.ProcessImgView;
 
 import java.util.ArrayList;
@@ -21,7 +25,10 @@ import java.util.List;
 public class FlowViewActivity extends BaseActivity {
     private ProcessImgView processImg1,processImg2,processImg3;
     private ViewPager viewPager;
-    List<BaseFragment> fragments;
+    List<BaseFragment> fragments,listFragments;
+    private FragmentManager fragmentManager;
+    FrameLayout framelayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +38,45 @@ public class FlowViewActivity extends BaseActivity {
             setTitle(title);
         }
         fragments=new ArrayList<>();
+        listFragments=new ArrayList<>();
         initViews();
         setProcessImg1();
         setProcessImg2();
 //        setProcessImg3();
         addViewPagerFragment();
+        addRadioButtonFragment();
+    }
+
+    private void addRadioButtonFragment() {
+        fragmentManager = getSupportFragmentManager();
+        final FlowViewFragment flowViewFragment1=new FlowViewFragment();
+        FlowViewFragment flowViewFragment2=new FlowViewFragment();
+        FlowViewFragment flowViewFragment3=new FlowViewFragment();
+        flowViewFragment1.setNextClick("1",new Runnable() {
+            @Override
+            public void run() {
+                processImg1.setProcess(3,2);
+                FragmentUtil.showFragment(fragmentManager, listFragments, listFragments.get(1), R.id.containerId);
+            }
+        });
+
+        flowViewFragment2.setNextClick("2",new Runnable() {
+            @Override
+            public void run() {
+                processImg1.setProcess(3,3);
+                FragmentUtil.showFragment(fragmentManager, listFragments, listFragments.get(2), R.id.containerId);
+            }
+        });
+        flowViewFragment3.setNextClick("3",new Runnable() {
+            @Override
+            public void run() {
+                ToastUtil.show("完成");
+            }
+        });
+        listFragments.add(flowViewFragment1);
+        listFragments.add(flowViewFragment2);
+        listFragments.add(flowViewFragment3);
+        FragmentUtil.showFragment(fragmentManager, listFragments, flowViewFragment1, R.id.containerId);
     }
 
     private void addViewPagerFragment() {
@@ -84,10 +125,11 @@ public class FlowViewActivity extends BaseActivity {
         processImg2 = (ProcessImgView) findViewById(R.id.p2);
         processImg3 = (ProcessImgView) findViewById(R.id.p3);
         viewPager = ((ViewPager) findViewById(R.id.viewpager));
+        framelayout = ((FrameLayout) findViewById(R.id.containerId));
     }
     private void setProcessImg1(){
         processImg1.setColor(Color.parseColor("#FFFF8C56"));
-        processImg1.setProcess(3,2);
+        processImg1.setProcess(3,1);
         processImg1.setTitle(1,"title1");
         processImg1.setTitle(2,"title2");
         processImg1.setTitle(3,"title3");
@@ -120,15 +162,6 @@ public class FlowViewActivity extends BaseActivity {
         processImg2.setTitle(4,"title4");
         processImg2.setTitle(5,"title5");
         processImg2.setTitle(6,"title6");
-        for (int j=1;j<=5;j++){
-            final int finalJ = j;
-            processImg2.setClick(j, new ProcessImgView.Click() {
-                @Override
-                public void click() {
-                    viewPager.setCurrentItem(finalJ);
-                }
-            });
-        }
     }
 
     private void setProcessImg3(){

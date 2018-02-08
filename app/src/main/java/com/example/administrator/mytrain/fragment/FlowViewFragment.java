@@ -26,6 +26,11 @@ public class FlowViewFragment extends BaseFragment implements View.OnClickListen
         this.runnable=runnable;
     }
 
+    public void setNextClick(String num,Runnable runnable){
+        this.num=num;
+        this.runnable=runnable;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
