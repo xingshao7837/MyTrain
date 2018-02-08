@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.administrator.mytrain.BaseActivity;
 import com.example.administrator.mytrain.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,10 @@ public class ViewActivity extends BaseActivity {
                                 intent.setClass(mContext,FlowViewActivity.class);
                                 intent.putExtra("title",data.get(position));
                                 break;
+                            case 1:
+                                intent.setClass(mContext,EditCodeActivity.class);
+                                intent.putExtra("title",data.get(position));
+                                break;
                         }
                         startActivity(intent);
                     }
@@ -73,6 +78,7 @@ public class ViewActivity extends BaseActivity {
 
     private void loadData() {
         data.add("流程进度view");
+        data.add("自定义验证码框");
         adapter.notifyDataSetChanged();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.mytrain.othertrain.EditCodeActivity">
+    tools:context="com.example.administrator.mytrain.selfview.EditCodeActivity">
 
     <com.example.administrator.mytrain.view.VerifyCodeView
         android:id="@+id/verify_code_view"

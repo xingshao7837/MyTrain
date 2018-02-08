@@ -41,7 +41,7 @@ public class FlowViewActivity extends BaseActivity {
     private void addViewPagerFragment() {
         for (int i=0;i<5;i++){
             FlowViewFragment flowViewFragment=new FlowViewFragment();
-            flowViewFragment.num=String.valueOf(i);
+            flowViewFragment.num=String.valueOf(i+1);
             flowViewFragment.setNextClick(new Runnable() {
                 @Override
                 public void run() {

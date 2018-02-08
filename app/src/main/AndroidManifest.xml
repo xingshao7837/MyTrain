@@ -67,7 +67,7 @@
         <activity android:name=".designmode.DesignModeActivity" />
         <activity android:name=".commontitle.CommonTitleActivity" />
         <activity android:name=".location.LocationActivity" />
-        <activity android:name=".othertrain.EditCodeActivity" />
+        <activity android:name=".selfview.EditCodeActivity" />
         <activity android:name=".broadcast.BroadcastMainActivity" />
 
         <receiver

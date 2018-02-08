@@ -17,7 +17,6 @@ import com.example.administrator.mytrain.designmode.DesignModeActivity;
 import com.example.administrator.mytrain.dialog.DialogShowActivity;
 import com.example.administrator.mytrain.kotlin.KotlinMainActivity;
 import com.example.administrator.mytrain.location.LocationActivity;
-import com.example.administrator.mytrain.othertrain.EditCodeActivity;
 import com.example.administrator.mytrain.selfview.ViewActivity;
 import com.example.administrator.mytrain.share.ShareActivity;
 import com.google.gson.Gson;
@@ -110,7 +109,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             startActivity(new Intent(mContext, CommonTitleActivity.class));
         }else if (R.id.location==id){
             startActivity(new Intent(mContext, LocationActivity.class));
-//            startActivity(new Intent(mContext, EditCodeActivity.class));
         }else if (id==R.id.broadcast){
             startActivity(new Intent(mContext, BroadcastMainActivity.class));
         }else if (id==R.id.kotlin){

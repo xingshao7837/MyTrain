@@ -1,4 +1,4 @@
-package com.example.administrator.mytrain.othertrain;
+package com.example.administrator.mytrain.selfview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
