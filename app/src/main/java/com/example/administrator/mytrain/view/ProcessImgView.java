@@ -122,6 +122,10 @@ public class ProcessImgView extends LinearLayout {
         setProcess(total, process);
     }
 
+    public int getCurrentProcess(){
+        return this.process;
+    }
+
     /**
      * 设置进度
      *

@@ -22,7 +22,8 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_share);
+        setView(R.layout.activity_share);
+        setTitle("分享模块");
         findViewById(R.id.file).setOnClickListener(this);
         findViewById(R.id.image).setOnClickListener(this);
         findViewById(R.id.text).setOnClickListener(this);
