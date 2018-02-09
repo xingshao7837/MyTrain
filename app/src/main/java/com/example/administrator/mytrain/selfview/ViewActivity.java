@@ -56,6 +56,10 @@ public class ViewActivity extends BaseActivity {
                                 intent.putExtra("title",data.get(position));
                                 break;
                             case 1:
+                                intent.setClass(mContext,OpenAccountFlowActivity.class);
+                                intent.putExtra("title",data.get(position));
+                                break;
+                            case 2:
                                 intent.setClass(mContext,EditCodeActivity.class);
                                 intent.putExtra("title",data.get(position));
                                 break;
@@ -78,6 +82,7 @@ public class ViewActivity extends BaseActivity {
 
     private void loadData() {
         data.add("流程进度view");
+        data.add("流程进度之开户");
         data.add("自定义验证码框");
         adapter.notifyDataSetChanged();
     }

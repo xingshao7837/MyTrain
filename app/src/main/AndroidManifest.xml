@@ -93,7 +93,8 @@
         <!-- 每个app拥有自己单独的定位service -->
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".selfview.FlowViewActivity"></activity>
+        <activity android:name=".selfview.FlowViewActivity" />
+        <activity android:name=".selfview.OpenAccountFlowActivity"></activity>
     </application>
 
 </manifest>
