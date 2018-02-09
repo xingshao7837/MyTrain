@@ -11,6 +11,7 @@ import com.example.administrator.mytrain.BaseActivity;
 import com.example.administrator.mytrain.R;
 import com.example.administrator.mytrain.fragment.BaseFragment;
 import com.example.administrator.mytrain.fragment.OpenAccountFragmentOne;
+import com.example.administrator.mytrain.fragment.OpenAccountFragmentTwo;
 import com.example.administrator.mytrain.uitls.FragmentUtil;
 import com.example.administrator.mytrain.view.ProcessImgView;
 
@@ -63,7 +64,7 @@ public class OpenAccountFlowActivity extends BaseActivity {
                 FragmentUtil.showFragment(fragmentManager, listFragments, listFragments.get(1), R.id.containerId);
             }
         });
-        OpenAccountFragmentOne open2=new OpenAccountFragmentOne();
+        OpenAccountFragmentTwo open2=new OpenAccountFragmentTwo();
         open2.setNextClick(new Runnable() {
             @Override
             public void run() {

@@ -46,6 +46,5 @@ public class OpenAccountFragmentOne extends BaseFragment implements View.OnClick
             if (runnable!=null)
                 runnable.run();
         }
-
     }
 }
