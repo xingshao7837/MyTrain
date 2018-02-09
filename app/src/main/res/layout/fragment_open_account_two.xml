@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/gray_color2">
+    android:background="@color/gray_background">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -21,20 +21,22 @@
                 android:paddingEnd="10dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="职业"
-                    android:minWidth="70dp"/>
+                    android:minWidth="85dp"
+                    android:textSize="@dimen/text_16"/>
                 <TextView
                     android:id="@+id/office"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="请选择职业"
+                    android:textSize="@dimen/text_16"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,7 +48,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_color2"
+                android:background="@color/gray_background"
                 android:layout_marginStart="10dp"></View>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,20 +57,22 @@
                 android:paddingEnd="10dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="所在城市"
-                    android:minWidth="70dp"/>
+                    android:minWidth="85dp"
+                    android:textSize="@dimen/text_16"/>
                 <TextView
                     android:id="@+id/city"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="请选择地区"
+                    android:textSize="@dimen/text_16"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,7 +84,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray_color2"
+                android:background="@color/gray_background"
                 android:layout_marginStart="10dp"></View>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,19 +93,21 @@
                 android:paddingEnd="10dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="职业"
-                    android:minWidth="70dp"/>
+                    android:text="居住地址"
+                    android:minWidth="85dp"
+                    android:textSize="@dimen/text_16"/>
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingBottom="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="请选择职业"
+                    android:hint="请输入居住地址"
+                    android:textSize="@dimen/text_16"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,10 +121,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
             android:orientation="horizontal"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             >
             <ImageView
                 android:layout_width="20dp"
@@ -134,8 +141,8 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
             android:orientation="horizontal"
             android:layout_marginStart="10dp"
             >
@@ -153,8 +160,8 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
             android:orientation="horizontal"
             android:layout_marginStart="10dp"
             >

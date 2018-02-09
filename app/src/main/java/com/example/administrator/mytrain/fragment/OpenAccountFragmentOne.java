@@ -37,6 +37,7 @@ public class OpenAccountFragmentOne extends BaseFragment implements View.OnClick
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         next.setOnClickListener(this);
+        image1.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +46,8 @@ public class OpenAccountFragmentOne extends BaseFragment implements View.OnClick
         if (id==R.id.next){
             if (runnable!=null)
                 runnable.run();
+        }else if (id==R.id.image1){
+
         }
     }
 }

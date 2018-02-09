@@ -11,9 +11,12 @@ import android.widget.TextView;
 import com.example.administrator.mytrain.R;
 import com.example.administrator.mytrain.uitls.ToastUtil;
 import com.example.administrator.mytrain.view.BottomListView;
+import com.example.administrator.mytrain.view.LinkageDialogView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 90589 on 2018/2/9.
@@ -23,6 +26,7 @@ public class OpenAccountFragmentTwo extends BaseFragment implements View.OnClick
     private TextView next,office,city;
     private Runnable runnable;
     BottomListView bottomListView;
+    LinkageDialogView linkageDialog;
 
     public void setNextClick(Runnable runnable){
         this.runnable=runnable;
@@ -73,7 +77,37 @@ public class OpenAccountFragmentTwo extends BaseFragment implements View.OnClick
             if (!bottomListView.isShowing())
                 bottomListView.show();
         }else if (id==R.id.city){
+            if (linkageDialog==null){
+                Map<String,List<String>> map=new HashMap<>();
+                List<String> data=new ArrayList<>();
+                data.add("省一");
+                data.add("省二");
+                data.add("省三");
+                data.add("省四");
+                data.add("省五");
+                data.add("省六");
+                map.put("first",data);
+                data=new ArrayList<>();
+                data.add("市区一");
+                data.add("市区二");
+                data.add("市区三");
+                data.add("市区四");
+                data.add("市区五");
+                data.add("市区六");
+                map.put("second",data);
+                data=new ArrayList<>();
+                data.add("区一");
+                data.add("区二");
+                data.add("区三");
+                data.add("区四");
+                data.add("区五");
+                data.add("区六");
+                map.put("third",data);
 
+                linkageDialog=new LinkageDialogView(getActivity(),map);
+            }
+            if (!linkageDialog.isShowing())
+                linkageDialog.show();
         }
     }
 }
