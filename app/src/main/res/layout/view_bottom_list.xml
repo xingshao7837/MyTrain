@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#23000000">
+    android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择职业"
+        android:textSize="@dimen/text_18"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@color/gray_background"
+        android:textColor="@color/block"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bottom_list_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         app:layoutManager="@string/LinearLayoutManager"
         ></android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+</LinearLayout>

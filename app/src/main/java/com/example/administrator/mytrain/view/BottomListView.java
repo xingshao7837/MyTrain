@@ -36,6 +36,15 @@ public class BottomListView extends Dialog{
     private Context context;
     private RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
+    BottomListSelect bottomListSelect;
+
+    public interface BottomListSelect{
+        void getListSelect(int position,String selectStr);
+    }
+
+    public void setBottomListSelect(BottomListSelect select){
+        this.bottomListSelect=select;
+    }
 
     public BottomListView(@NonNull Context context,List<String> data) {
         super(context, R.style.dialog_custom);
@@ -57,16 +66,21 @@ public class BottomListView extends Dialog{
         Window window = getWindow();
         assert window != null;
         window.setGravity(Gravity.BOTTOM);
+
         window.setWindowAnimations(R.style.bottom_menu_animation);
         setContentView(R.layout.view_bottom_list);
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(lp);
 
-        //设置宽度
-        WindowManager windowManager = ((Activity) context).getWindowManager();
-
-        Display display = windowManager.getDefaultDisplay();
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.width = display.getWidth() * 9 / 10;
-        getWindow().setAttributes(params);
+//        //设置宽度
+//        WindowManager windowManager = ((Activity) context).getWindowManager();
+//
+//        Display display = windowManager.getDefaultDisplay();
+//        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.width = display.getWidth() * 9 / 10;
+//        getWindow().setAttributes(params);
 
         setCanceledOnTouchOutside(true);
         recyclerView = ((RecyclerView) findViewById(R.id.bottom_list_recycler));
@@ -98,7 +112,10 @@ public class BottomListView extends Dialog{
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                   if (bottomListSelect!=null){
+                       dismiss();
+                       bottomListSelect.getListSelect(position,data.get(position));
+                   }
                     }
                 });
             }

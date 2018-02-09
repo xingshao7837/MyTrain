@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.mytrain.R;
+import com.example.administrator.mytrain.uitls.ToastUtil;
 import com.example.administrator.mytrain.view.BottomListView;
 
 import java.util.ArrayList;
@@ -60,10 +61,19 @@ public class OpenAccountFragmentTwo extends BaseFragment implements View.OnClick
             data.add("其他");
             if (bottomListView==null){
                 bottomListView=new BottomListView(getActivity(),data);
+                bottomListView.setBottomListSelect(new BottomListView.BottomListSelect() {
+                    @Override
+                    public void getListSelect(int position, String selectStr) {
+                        ToastUtil.show(selectStr);
+                        office.setText(selectStr);
+                    }
+                });
             }
 
             if (!bottomListView.isShowing())
                 bottomListView.show();
+        }else if (id==R.id.city){
+
         }
     }
 }

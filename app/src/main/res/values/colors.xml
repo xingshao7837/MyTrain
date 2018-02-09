@@ -7,6 +7,8 @@
     <color name="gray">#31000000</color>
     <color name="gray_color">#c1FFFFFF</color>
     <color name="gray_color2">#61FFFFFF</color>
+    <color name="gray_background">#dddddd</color>
+    <color name="block">#000000</color>
 
     <!--<color name="colorPrimary">#009900</color>-->
     <!--<color name="colorPrimaryDark">#009900</color>-->
