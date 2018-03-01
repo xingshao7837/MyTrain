@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -287,7 +288,7 @@ public class VideoVoiceActivity extends BaseActivity {
         mediaExtractor = new MediaExtractor();
         int audioIndex = -1;
         try {
-            mediaExtractor.setDataSource(SDCARD_PATH + "/视频.mp4");
+            mediaExtractor.setDataSource(SDCARD_PATH + "/input.mp4");
             int trackCount = mediaExtractor.getTrackCount();
             for (int i = 0; i < trackCount; i++) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(i);
