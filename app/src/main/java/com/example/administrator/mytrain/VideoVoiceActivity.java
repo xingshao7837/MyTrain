@@ -610,21 +610,21 @@ public class VideoVoiceActivity extends BaseActivity {
     }
 
 
-    public void saveToSDCard(String name) throws Throwable {
-        InputStream inStream = mContext.getResources().openRawResource(R.raw.input);
-        File file = new File(Environment.getExternalStorageDirectory(), name);
-        FileOutputStream fileOutputStream = new FileOutputStream(file);//存入SDCard
-        byte[] buffer = new byte[10];
-        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-        int len = 0;
-        while((len = inStream.read(buffer)) != -1) {
-            outStream.write(buffer, 0, len);
-        }
-        byte[] bs = outStream.toByteArray();
-        fileOutputStream.write(bs);
-        outStream.close();
-        inStream.close();
-        fileOutputStream.flush();
-        fileOutputStream.close();
-    }
+//    public void saveToSDCard(String name) throws Throwable {
+//        InputStream inStream = mContext.getResources().openRawResource(R.raw.input);
+//        File file = new File(Environment.getExternalStorageDirectory(), name);
+//        FileOutputStream fileOutputStream = new FileOutputStream(file);//存入SDCard
+//        byte[] buffer = new byte[10];
+//        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+//        int len = 0;
+//        while((len = inStream.read(buffer)) != -1) {
+//            outStream.write(buffer, 0, len);
+//        }
+//        byte[] bs = outStream.toByteArray();
+//        fileOutputStream.write(bs);
+//        outStream.close();
+//        inStream.close();
+//        fileOutputStream.flush();
+//        fileOutputStream.close();
+//    }
 }
