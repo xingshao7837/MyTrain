@@ -13,9 +13,14 @@ import com.example.administrator.mytrain.R;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 
 public class ShareActivity extends BaseActivity implements View.OnClickListener {
@@ -57,6 +62,28 @@ public class ShareActivity extends BaseActivity implements View.OnClickListener 
         }else if (id==R.id.self_view){
             // TODO: 2017/11/17 0017 待实现自定义分享界面 
 //            getShareApps();
+
+            Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
+            weibo.SSOSetting(false);  //设置false表示使用SSO授权方式
+            weibo.setPlatformActionListener(new PlatformActionListener() {
+                @Override
+                public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+                }
+
+                @Override
+                public void onError(Platform platform, int i, Throwable throwable) {
+
+                }
+
+                @Override
+                public void onCancel(Platform platform, int i) {
+
+                }
+            }); // 设置分享事件回调
+
+            weibo.authorize();//单独授权
+            weibo.showUser(null);//授权并获取用户信息
             showShare(null);
         }
     }
